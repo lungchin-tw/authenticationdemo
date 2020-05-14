@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>GOOGLE ACCOUNT LOGIN DEMO - HELLO GOOGLE</title>
+        <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="804191110146-87nmu8ktllce0sevfana77di4bn0vuch.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+      </head>
+      <body>
+        <p><a href="../../index.html">BACK</a></p>
+        <div class="Profile" id="Profile"></div>
+        <script src="https://apis.google.com/js/api.js"></script>
+
+        <div class="g-signin2" data-onsuccess="onSignIn" data-onfailure="onSignInFailure" data-theme="dark"></div>
+        <script>
+           console.log(`WindowOrign: ${window.location.origin}`);
+
+          function onSignIn(googleUser) {
+            // Useful data for your client-side scripts:
+            var profile = googleUser.getBasicProfile();
+            
+            document.getElementById("Profile").innerHTML = "<p> OnSingnIn:</p>" + 
+            `<p>ID: ${profile.getId()}</p>` +
+            `<p>FullName: ${profile.getName()}</p>` +
+            `<p>Given Name: ${profile.getGivenName()}</p>` +
+            `<p>Family Name: ${profile.getFamilyName()}</p>` +
+            `<p>Image URL: ${profile.getImageUrl()}</p>` +
+            `<p>Email: ${profile.getEmail()}</p>` +
+            `<p>ID Token: ${googleUser.getAuthResponse().id_token}</p>`;
+          }
+
+          function onSignInFailure() {
+            console.log("onSignInFailure");
+          }
+
+        </script>
+
+        <a href="#" onclick="signOut();">Sign out</a>
+        <script>
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            
+            auth2.signOut().then(function () {
+                console.log(auth2);
+                console.log('User signed out.');
+            });
+        }
+        </script>
+      </body>
+</html>
