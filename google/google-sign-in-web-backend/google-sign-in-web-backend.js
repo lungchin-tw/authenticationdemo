@@ -15,10 +15,14 @@ var onSignIn = (googleUser) => {
   `<p>ID Token: ${googleUser.getAuthResponse().id_token}</p>`;
 
   let xhr = new XMLHttpRequest();
-  xhr.open('POST', 'http://localhost:9999/api/auth/google');
+  // xhr.open('POST', 'http://localhost:9999/api/auth/google');
+  let host = 'http://18.136.192.121:9999/api/auth/google';
+  // let host = 'http://localhost:9999/api/auth/google';
+  xhr.open('POST', host );
   xhr.setRequestHeader('X-AUTH-USER', '6');
   xhr.setRequestHeader('X-AUTH-TOKEN', '6ce3a74ba23d4facb6b250a995e8a7d2');
   xhr.onload = () => {
+    console.log(`Host: ${host}`);
     console.log(`XMLHttpRequest::onload, ${xhr.responseText}`);
   }
 
