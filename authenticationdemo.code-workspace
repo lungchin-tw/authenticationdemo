@@ -4,5 +4,15 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"liveServer.settings.root": "/",
+		"liveServer.settings.CustomBrowser": "chrome:PrivateMode",
+		"liveServer.settings.https": {
+			"enable": true,
+			"cert": "/Users/jacky/Documents/git/authenticationdemo/https/localhost.crt",
+			"key": "/Users/jacky/Documents/git/authenticationdemo/https/localhost.key",
+			"passphrase": "123456"
+		},
+	}
 }
