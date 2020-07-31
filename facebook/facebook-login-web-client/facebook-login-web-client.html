@@ -4,35 +4,47 @@
     <head>
         <title>FACEBOOK ACCOUNT LOGIN DEMO - HELLO FACEBOOK</title>
         <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
-      </head>
-      <body>
+        <style>div { word-wrap: break-word;}</style>
+    </head>
+    <body>
         <p><a href="../../index.html">BACK</a></p>
-        <div class="Profile" id="Profile"></div>
+        
+        <div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="true" data-use-continue-as="true" data-width="" scope="public_profile,email" onlogin="onLogin();"></div>
+
+        <div>
+          <a href="#" onclick="logout();">Logout</a>
+        </div>
+
+        <div id="Status"></div>
+        <div id="Profile"></div>
+
         <script src="./facebook-login-web-client.js"></script>
 
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v7.0&appId=545824362782331&autoLogAppEvents=1" nonce="PqUgp24K"></script>
-        <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true" data-width=""></div>
-
         <script>
-            window.fbAsyncInit = function() {
-              FB.init({
-                appId      : '545824362782331',
-                cookie     : false,
-                xfbml      : true,
-                version    : 'v7.0'
-              });
-                
-              FB.AppEvents.logPageView();
-            };
-
             (function(d, s, id){
+                console.log('function(d, s, id)');
+                console.log(`\td(${d})=`, d);
+                console.log(`\ts(${s})=`, s);
+                console.log(`\tid(${id})=`, id);
+              
                 var js, fjs = d.getElementsByTagName(s)[0];
+                console.log(`\tjs(${js})=`, js);
+                console.log(`\tfjs(${fjs})=`, fjs);
+
                 if (d.getElementById(id)) {return;}
                 js = d.createElement(s); js.id = id;
                 js.src = "https://connect.facebook.net/en_US/sdk.js";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
+        
+        <!-- <fb:login-button scope="public_profile,email" onlogin="onLogin();">
+        </fb:login-button> -->
+
+        <!-- Load the JS SDK asynchronously -->
+        <!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script> -->
+        
+        <!-- <div id="fb-root"></div> -->
+        <!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v7.0&appId=545824362782331&autoLogAppEvents=1" nonce="PqUgp24K"></script> -->
       </body>
 </html>
